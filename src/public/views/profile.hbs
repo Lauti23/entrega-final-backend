@@ -1,0 +1,47 @@
+<header>
+    <nav class="nav">
+        <h1 class="navTitle">Ecommerce</h1> 
+        <ul class="navList">
+            <a href="/products"><li class="listItems">Productos</li></a>
+            <a href="/carts"><li class="listItems">Carrito</li></a>
+            <a href="/profile"><li class="listItems">Perfil</li></a>
+        </ul>
+        <div class="navButtons">
+            <a href="/logout"><p class="logout">Cerrar Sesión</p></a>
+        </div>
+    </nav>
+</header>
+<h2 class="title">Perfil</h2>
+<p class="subtitle">¡Bienvenido {{currentUser.name}}!</p>
+
+
+<main class="mainProfile">
+    <aside class="profileData">
+        <div class="profilePicContainer">
+            <img class="profilePicture" src="../uploads/{{currentUser.image}}" alt="">
+        </div>
+        <p class="profileDataTitle">Tus datos:</p>
+        <ul class="profileList">
+            <li class="profileItems">Nombre: {{currentUser.name}}</li>
+            <li class="profileItems">Apellido: {{currentUser.surname}}</li>
+            <li class="profileItems">Email: {{currentUser.email}}</li>
+            <li class="profileItems">Telefono: {{currentUser.phone}}</li>
+            <li class="profileItems">Nombre de usuario: {{currentUser.username}}</li>
+        </ul>
+    </aside>
+    <div class="prodsForSale">
+        <p>Productos en venta</p>
+    </div>
+    <section class="historySection">
+        <h3 class="historyTitle">Historial</h3>
+        <div class="historyPurchased">
+            <p>Comprado</p>
+        </div>
+        <div class="historySold">
+            <p>Vendido</p>
+        </div>
+    </section>
+</main>
+
+
+
