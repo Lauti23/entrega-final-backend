@@ -8,22 +8,22 @@ let needData = document.getElementById("noData");
 
 
 //FUNCIÓN PARA OBTENER EL PRODUCTO QUE SE QUIERE GUARDAR
-const submitProducts = (e) => {
-    e.preventDefault()
-    let name = e.target[0].value;
-    let price = e.target[1].value;
-    let image = e.target[2].value;
-    let stock = e.target[3].value;
-    if(name && price && image && stock) {
-        let product = {name, price, image, stock}
-        socket.emit("createProduct", product)
-        productsForm.reset()
-    } else {
-        needData.innerHTML = "¡Faltan campos por completar!"
-    }
-}
+// const submitProducts = (e) => {
+//     e.preventDefault()
+//     let name = e.target[0].value;
+//     let price = e.target[1].value;
+//     let image = e.target[2].value;
+//     let stock = e.target[3].value;
+//     if(name && price && image && stock) {
+//         let product = {name, price, image, stock}
+//         socket.emit("createProduct", product)
+//         productsForm.reset()
+//     } else {
+//         needData.innerHTML = "¡Faltan campos por completar!"
+//     }
+// }
 
-productsForm.addEventListener("submit", (e) => submitProducts(e));
+// productsForm.addEventListener("submit", (e) => submitProducts(e));
 
 socket.on("productsData", data => {
     if(data.length === 0) {

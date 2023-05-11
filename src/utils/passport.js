@@ -22,10 +22,9 @@ export const initializePassport = () => {
                 logger.warn("El nombre de usuario ya existe", user);
                 return done(null, false, { message: "El nombre de usuario ya existe." });
             } 
+            await cartService.save({owner: username})
             const hashedPw = createHash(password)
             const newUser = await userService.save({ name, surname, email, phone, image, username, password: hashedPw });
-            const userCart = await cartService.save({owner: username})
-            console.log("CARRITO", userCart)
             done(null, newUser);
             logger.info("Nuevo usuario registrado:", newUser);
         } catch (error) {

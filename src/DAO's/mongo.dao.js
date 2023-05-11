@@ -31,7 +31,6 @@ export class MongoDAO {
     get = async (options, entity) => {
         if(!this.models[entity]) throw new Error("Entidad no encontrada");
         let results = await this.models[entity].find(options);
-        console.log("RESULTS DE ENTITY MONGO DAO", results);
         return results.map(result => result.toObject())
     }
 

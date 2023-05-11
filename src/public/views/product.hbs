@@ -1,0 +1,32 @@
+<header>
+    <nav class="nav">
+        <h1 class="navTitle"><a href="/">Ecommerce</a></h1> 
+        <ul class="navList">
+            <a href="/products"><li class="listItems">Productos</li></a>
+            <a href="/carts"><li class="listItems">Carrito</li></a>
+            <a href="/chat"><li class="listItems">Chat</li></a>
+            <a href="/profile"><li class="listItems">Perfil</li></a>
+        </ul>
+        <div class="navButtons">
+            <a href="/products/sell"><p>Vender un producto</p></a>
+            <a href="/logout"><p class="logout">Cerrar Sesión</p></a>
+        </div>
+    </nav>
+</header>
+<main class="prodMain">
+    <div class="prodContainer">
+        <img class="prodImage" src="{{result.image}}" alt="">
+        <aside class="prodAside">
+            <h2 class="prodName">{{result.name}}</h2>
+            <hr>
+            <h3 class="prodPrice">Precio: ${{result.price}}</h3>
+            <p class="prodDescription"><strong>Descripción: </strong>{{result.description}}</p>
+            <p class="prodStock"><strong>Stock: </strong>{{result.stock}}</p>
+            <p class="prodSeller"><strong>Vendedor: </strong>{{result.seller}}</p>
+            <p class="prodDate"><strong>Fecha de publicación: </strong>{{result.created_at}}</p>
+            <div class="prodBtnContainer">
+                <button>Añadir al carrito</button>
+            </div>
+        </aside>
+    </div>
+</main>

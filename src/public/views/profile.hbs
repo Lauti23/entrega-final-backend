@@ -1,12 +1,14 @@
 <header>
     <nav class="nav">
-        <h1 class="navTitle">Ecommerce</h1> 
+        <h1 class="navTitle"><a href="/">Ecommerce</a></h1> 
         <ul class="navList">
             <a href="/products"><li class="listItems">Productos</li></a>
             <a href="/carts"><li class="listItems">Carrito</li></a>
+            <a href="/chat"><li class="listItems">Chat</li></a>
             <a href="/profile"><li class="listItems">Perfil</li></a>
         </ul>
         <div class="navButtons">
+            <a href="/products/sell"><p>Vender un producto</p></a>
             <a href="/logout"><p class="logout">Cerrar Sesión</p></a>
         </div>
     </nav>
@@ -22,15 +24,34 @@
         </div>
         <p class="profileDataTitle">Tus datos:</p>
         <ul class="profileList">
-            <li class="profileItems">Nombre: {{currentUser.name}}</li>
-            <li class="profileItems">Apellido: {{currentUser.surname}}</li>
-            <li class="profileItems">Email: {{currentUser.email}}</li>
-            <li class="profileItems">Telefono: {{currentUser.phone}}</li>
-            <li class="profileItems">Nombre de usuario: {{currentUser.username}}</li>
+            <li class="profileItems"><strong>Nombre:</strong> {{currentUser.name}}</li>
+            <li class="profileItems"><strong>Apellido:</strong> {{currentUser.surname}}</li>
+            <li class="profileItems"><strong>Email:</strong> {{currentUser.email}}</li>
+            <li class="profileItems"><strong>Telefono:</strong> {{currentUser.phone}}</li>
+            <li class="profileItems"><strong>Nombre de usuario:</strong> {{currentUser.username}}</li>
         </ul>
     </aside>
     <div class="prodsForSale">
-        <p>Productos en venta</p>
+        <h3 class="prodsForSaleTitle">Productos en venta</h3>
+        {{#if productsOnSale}}
+            {{#each productsOnSale}}
+                <div class="prodsForSaleContainer">
+                    <img class="prodsForSaleImage" src="{{this.image}}">
+                    <ul class="prodsForSaleList">
+                        <li class="prodsForSaleItem"><strong>Producto: </strong>{{this.name}}</li>
+                        <li class="prodsForSaleItem"><strong>Precio: </strong>${{this.price}}</li>
+                        <li class="prodsForSaleItem"><strong>Stock: </strong>{{this.stock}}</li>
+                        <li class="prodsForSaleItem"><strong>Publicado en: </strong>{{this.created_at}}</li>
+                    </ul>
+                    <div class="prodsForSaleButtons">
+                        <a href="/products/edit/{{this._id}}"><button>Editar</button></a>
+                        <a href="/products/delete/{{this._id}}"><button>Eliminar</button></a>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <p>¡No tienes productos en venta aún!</p>
+        {{/if}}
     </div>
     <section class="historySection">
         <h3 class="historyTitle">Historial</h3>

@@ -6,3 +6,5 @@ import cartController from "../controllers/cart.controller.js";
 export const cartRouter = Router();
 
 cartRouter.get("/", routeLogs, isAuthenticated, cartController.render)
+
+cartRouter.get("/products", routeLogs, isAuthenticated)

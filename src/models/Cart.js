@@ -15,8 +15,7 @@ export class Cart {
                 required: true
             },
             items: {
-                type: [Product.schema],
-                default: undefined
+                type: [],
             },
             price: {
                 type: Number,

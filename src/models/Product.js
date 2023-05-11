@@ -11,7 +11,9 @@ export class Product {
             name: String,
             price: Number,
             image: String,
-            stock: Number
+            stock: Number,
+            description: String,
+            seller: String
         }
     }
 }
