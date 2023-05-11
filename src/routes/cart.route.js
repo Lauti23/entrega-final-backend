@@ -7,4 +7,6 @@ export const cartRouter = Router();
 
 cartRouter.get("/", routeLogs, isAuthenticated, cartController.render)
 
-cartRouter.get("/products", routeLogs, isAuthenticated)
+cartRouter.get("/:id", routeLogs, isAuthenticated, cartController.addProductToCart)
+
+cartRouter.get("/delete/:id", routeLogs, isAuthenticated, cartController.deleteProductFromCart)

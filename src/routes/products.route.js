@@ -14,14 +14,9 @@ productsRoute
 
     .get("/buy/:id", routeLogs, isAuthenticated, productsController.getById)
 
-    .get("/delete/:id", routeLogs, isAuthenticated, productsController.deleteById)
+    .delete("/delete/:id", routeLogs, isAuthenticated, productsController.deleteById)
 
     .get("/edit/:id", routeLogs, isAuthenticated, productsController.renderUpdate)
 
-    .post("/edit/:id", routeLogs, isAuthenticated, productsController.updateById)
-    // .get("/:id", routeLogs, productsController.getById)
-
-    // .put("/:id", routeLogs, productsController.updateById)
-
-    // .delete("/:id", routeLogs, productsController.deleteById)
+    .put("/edit/:id", routeLogs, isAuthenticated, productsController.updateById)
 

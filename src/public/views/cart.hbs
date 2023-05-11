@@ -14,10 +14,17 @@
     </nav>
 </header>
 <h2 class="title">Tu carrito</h2>
-<div>
-    <ul>
-        <li>Dueño del carrito: {{result.owner}}</li>
-        <li>Precio total: {{result.price}}</li>
-        <li>Productos del carrito: {{result.items}}</li>
-    </ul>
+<div class="cartContainer">
+    {{#each result.items}}
+        <div class="cartProducts">
+            <img src="{{this.image}}" alt="">
+            <ul>
+                <li>{{this.name}}</li>
+                <li>${{this.price}}</li>
+                <li>{{this.description}}</li>
+            </ul>
+            <a href="/carts/delete/{{this._id}}"><button>Eliminar del carrito</button></a>
+        </div>
+    {{/each}}
+    <h3 class="cartPrice">Precio total: ${{result.price}}</h3>
 </div>

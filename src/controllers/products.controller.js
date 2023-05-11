@@ -1,9 +1,7 @@
 import { productService } from "../services/services.config.js"
-import ProductDTO from "../DTO's/ProductDTO.js"
 
 const render = async (req, res) => {
     const products = await productService.get()
-    console.log("/products", products)
     res.status(200).render("products.hbs", { products })
 }
 
@@ -22,16 +20,14 @@ const renderUpdate = async (req, res) => {
 const getById = async (req, res) => {
     let { id } = req.params
     const product = await productService.getById({ _id: id })
-    const { name, price, image, description, stock, seller, created_at } = product
-    const result = { name, price, image, description, stock, seller, created_at }
+    const { _id, name, price, image, description, stock, seller, created_at } = product
+    const result = { _id, name, price, image, description, stock, seller, created_at }
     res.status(200).render("product.hbs", { result })
 }
 
 const updateById = async (req, res) => {
-    console.log(req.body)
     let { id } = req.params
     let { body } = req
-    console.log(body)
     await productService.update({ _id: id }, { name: body.updateName, price: body.updatePrice, description: body.updateDescription, stock: body.updateStock})
     let product = await productService.get({ _id: id })
     res.status(200).send(product)

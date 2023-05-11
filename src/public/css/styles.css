@@ -526,3 +526,41 @@
     resize: none;
     display: block;
 }
+
+/*-------------------------------CART---------------------------------*/
+.cartContainer {
+    width: 50%;
+    margin: 3rem auto;
+    background-color: #333;
+    padding: 2rem;
+}
+
+.cartProducts {
+    margin: 2rem auto;
+    display: flex;
+}
+
+.cartProducts img {
+    width: 30%;
+}
+
+.cartProducts ul {
+    width: 70%;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.cartProducts ul li {
+    padding: 1rem;
+}
+
+.cartProducts button {
+    height: 20%;
+}
+
+.cartPrice {
+    text-align: end;
+}
